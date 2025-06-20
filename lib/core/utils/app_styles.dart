@@ -12,6 +12,13 @@ class AppStyles {
   );
 
   /// Text 14 sp ---------------------------------------------------------------
+  static TextStyle text14sp1h600white = TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: 14.sp,
+    color: AppColor.white,
+    height: 1,
+  );
+
   static TextStyle text14sp600blue1 = TextStyle(
     fontWeight: FontWeight.w600,
     fontSize: 14.sp,
