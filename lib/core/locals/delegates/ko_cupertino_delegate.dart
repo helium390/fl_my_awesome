@@ -199,4 +199,12 @@ class CupertinoLocalizationJa extends CupertinoLocalizations {
   @override
   // TODO: implement todayLabel
   String get todayLabel => throw UnimplementedError();
+
+  @override
+  // TODO: implement backButtonLabel
+  String get backButtonLabel => throw UnimplementedError();
+
+  @override
+  // TODO: implement cancelButtonLabel
+  String get cancelButtonLabel => throw UnimplementedError();
 }
