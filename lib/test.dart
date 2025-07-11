@@ -9,3 +9,7 @@ void test2() {
 void test3() {
   print('Just for test');
 }
+
+void test4() {
+  print('Just for test');
+}
