@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 
 import '../../widgets/custom_button.dart';
 import '../buttons/buttons_page.dart';
+import '../passwords/password_page.dart';
 import '../text_field/text_field_page.dart';
 import 'home_controller.dart';
 
@@ -39,6 +40,13 @@ class HomePage extends StatelessWidget {
                       text: 'TextFields',
                       onPress: () {
                         Get.to(() => TextFieldPage());
+                      },
+                    ),
+                    20.ph,
+                    CustomButton(
+                      text: 'Passwords',
+                      onPress: () {
+                        Get.to(() => PasswordPage());
                       },
                     ),
                   ],

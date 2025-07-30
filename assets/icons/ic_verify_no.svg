@@ -1,0 +1,8 @@
+<svg width="20" height="15" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="9.62801" height="2.407" rx="1.2035"
+        transform="matrix(0.714834 0.699294 -0.714834 0.699294 1.72058 5.30078)" fill="#706D6D"
+        stroke="#706D6D" stroke-width="0.5" />
+    <rect width="16.849" height="2.407" rx="1.2035"
+        transform="matrix(-0.714834 0.699294 -0.714834 -0.699294 19.4866 2.33594)" fill="#706D6D"
+        stroke="#706D6D" stroke-width="0.5" />
+</svg>

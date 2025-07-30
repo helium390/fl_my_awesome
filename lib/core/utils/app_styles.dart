@@ -12,6 +12,18 @@ class AppStyles {
   );
 
   /// Text 14 sp ---------------------------------------------------------------
+  static TextStyle text14sp400black1 = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 14.sp,
+    color: AppColor.black1,
+  );
+
+  static TextStyle text14sp400black2 = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 14.sp,
+    color: AppColor.black2,
+  );
+
   static TextStyle text14sp1h600white = TextStyle(
     fontWeight: FontWeight.w600,
     fontSize: 14.sp,
@@ -31,11 +43,60 @@ class AppStyles {
     color: AppColor.blue2,
   );
 
+  static TextStyle text14sp400error = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 14.sp,
+    color: AppColor.errorText,
+  );
+
+  static TextStyle text14sp400noError = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 14.sp,
+    color: AppColor.noErrorText,
+  );
+
+  /// Text 15 sp ---------------------------------------------------------------
+  static TextStyle text15sp400hint = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 15.sp,
+    color: AppColor.hintColor,
+  );
+
+  static TextStyle text15sp400black1 = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 15.sp,
+    color: AppColor.black1,
+  );
+
+  static TextStyle text15sp400blue1 = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 15.sp,
+    color: AppColor.blue1,
+  );
+
   /// Text 16 sp ---------------------------------------------------------------
   static TextStyle text16sp400white = TextStyle(
     fontWeight: FontWeight.w400,
     fontSize: 16.sp,
     color: AppColor.white,
+  );
+
+  static TextStyle text16sp400black2 = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 16.sp,
+    color: AppColor.black2,
+  );
+
+  static TextStyle text16sp600black2 = TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: 16.sp,
+    color: AppColor.black2,
+  );
+
+  static TextStyle text16sp400black3 = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 16.sp,
+    color: AppColor.black3,
   );
 
   static TextStyle text16sp400accent = TextStyle(
@@ -98,6 +159,12 @@ class AppStyles {
     fontWeight: FontWeight.w700,
     fontSize: 20.sp,
     color: AppColor.white,
+  );
+
+  static TextStyle text20sp400black3 = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 20.sp,
+    color: AppColor.black3,
   );
 
   /// Text 22 sp ----------------------------------------------------------------

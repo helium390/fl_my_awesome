@@ -16,6 +16,8 @@ class IconsInAssets {
 
   String get back => "assets/icons/ic_back.svg";
   String get close => "assets/icons/ic_close.svg";
+  String get verifyOk => "assets/icons/ic_verify_ok.svg";
+  String get verifyNo => "assets/icons/ic_verify_no.svg";
 }
 
 class Lotties {

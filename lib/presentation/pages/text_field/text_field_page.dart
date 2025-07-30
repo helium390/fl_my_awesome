@@ -4,8 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../core/utils/app_colors.dart';
+import '../../../core/utils/app_styles.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/custom_text_field.dart';
+import '../../widgets/custom_text_form_field.dart';
+import '../../widgets/dividers.dart';
 import 'text_field_controller.dart';
 
 class TextFieldPage extends StatelessWidget {
@@ -30,25 +33,106 @@ class TextFieldPage extends StatelessWidget {
             ),
             body: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(20.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    20.ph,
+                    Text(
+                      'CustomTextField',
+                      style: AppStyles.text16sp600black2,
+                    ),
+                    10.ph,
                     CustomTextField(
-                      hintText: 'id'.tr,
+                      hintText: 'Bg Color Change',
+                      bgValueColor: AppColor.white,
                       function: (text) {
                         // controller.activateButton();
                       },
                       controller: TextEditingController(),
                       keyboardType: TextInputType.text,
-                      inputFormatters: [
-                      ],
+                      inputFormatters: [],
+                    ),
+                    10.ph,
+                    CustomTextField(
+                      hintText: 'Bg Color Change',
+                      bgColor: AppColor.white,
+                      function: (text) {
+                        // controller.activateButton();
+                      },
+                      controller: TextEditingController(),
+                      keyboardType: TextInputType.text,
+                      inputFormatters: [],
+                    ),
+                    10.ph,
+                    CustomTextField(
+                      hintText: 'Password',
+                      controller: TextEditingController(),
+                      bgColor: AppColor.white,
+                      keyboardType: TextInputType.text,
+                      obscureText: true,
+                      function: (text) {
+                        // controller.checkPassword();
+                      },
+                    ),
+                    10.ph,
+                    CustomTextField(
+                      title: 'Title text',
+                      titleBottomPadding: 5,
+                      hintText: 'Title',
+                      controller: TextEditingController(),
+                      bgColor: AppColor.white,
+                      keyboardType: TextInputType.text,
+                      function: (text) {
+                        // controller.checkPassword();
+                      },
+                    ),
+                    10.ph,
+                    CustomTextField(
+                      titleBottomPadding: 5,
+                      hintText: 'Error Text',
+                      controller: TextEditingController(),
+                      bgColor: AppColor.white,
+                      keyboardType: TextInputType.text,
+                      errorTopPadding: 2,
+                      function: (text) {
+                        // controller.checkPassword();
+                      },
+                      errorText: 'Error Text',
+                    ),
+                    10.ph,
+                    CustomTextField(
+                      hintText: 'No Error Text',
+                      controller: TextEditingController(),
+                      bgColor: AppColor.white,
+                      keyboardType: TextInputType.text,
+                      errorTopPadding: 2,
+                      function: (text) {
+                        // controller.checkPassword();
+                      },
+                      noErrorText: 'No Error Text',
+                    ),
+                    20.ph,
+                    Dividers.divider0h05t02black02(),
+                    20.ph,
+                    Text(
+                      'CustomTextFormField',
+                      style: AppStyles.text16sp600black2,
+                    ),
+                    10.ph,
+                    CustomTextFormField(
+                      hintText: 'Password',
+                      // bgColor: AppColor.white,
+                      controller: TextEditingController(),
+                      keyboardType: TextInputType.text,
+                      obscureText: true,
+                      obscureColor: AppColor.red1,
+                      function: (text) {
+                        // controller.checkPassword();
+                      },
                     ),
                     20.ph,
                     CustomButton(
-                      text: 'Button shadow',
-                      elevation: 5,
+                      text: 'Button',
                       onPress: () {},
                     ),
                   ],
