@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 
 import '../../core/utils/app_colors.dart';
 
-class CustomTextField extends StatelessWidget {
+class CustomTextField extends StatefulWidget {
   final TextEditingController controller;
   final Function(String value)? function;
   final TextInputType keyboardType;
@@ -31,7 +31,11 @@ class CustomTextField extends StatelessWidget {
 
   final bool readOnly;
   final bool isLastFieldOfPage;
+
   final bool obscureText;
+  final bool obscureIconVisible;
+  final Widget? obscureIcon;
+
   final List<TextInputFormatter>? inputFormatters;
   final TextCapitalization textCapitalization;
   final TextAlign textAlign;
@@ -65,6 +69,8 @@ class CustomTextField extends StatelessWidget {
     this.focusNode,
     this.inputFormatters,
     this.obscureText = false,
+    this.obscureIconVisible = false,
+    this.obscureIcon,
     this.textCapitalization = TextCapitalization.none,
     this.textAlign = TextAlign.start,
     this.suffix,
@@ -74,104 +80,145 @@ class CustomTextField extends StatelessWidget {
   });
 
   @override
+  State<CustomTextField> createState() => _CustomTextFieldState();
+}
+
+class _CustomTextFieldState extends State<CustomTextField> {
+  late bool _passwordVisible;
+
+  @override
+  void initState() {
+    super.initState();
+    _passwordVisible = !widget.obscureText;
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return StatefulBuilder(builder: (
-      BuildContext context,
-      StateSetter setState,
-    ) {
-      return Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Visibility(
-            visible: title != null,
-            child: Padding(
-              padding: EdgeInsets.only(bottom: titleBottomPadding),
-              child: Text(
-                title ?? "",
-                style: titleStyle ?? AppStyles.text16sp400black2,
-              ),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Visibility(
+          visible: widget.title != null,
+          child: Padding(
+            padding: EdgeInsets.only(bottom: widget.titleBottomPadding),
+            child: Text(
+              widget.title ?? "",
+              style: widget.titleStyle ?? AppStyles.text16sp400black2,
             ),
           ),
-          SizedBox(
-            height: 50,
-            child: TextField(
-              focusNode: focusNode,
-              readOnly: readOnly,
-              keyboardType: keyboardType,
-              textCapitalization: textCapitalization,
-              controller: controller,
-              cursorColor: AppColor.hintColor,
-              style: const TextStyle(
-                color: AppColor.textColor,
-                decoration: TextDecoration.none,
-              ),
-              textAlign: textAlign,
-              onChanged: (text) {
-                setState(() {
-                  function!(text);
-                });
-              },
-              cursorWidth: 0.75,
-              autocorrect: false,
-              enableSuggestions: false,
-              obscureText: obscureText,
-              obscuringCharacter: '●',
-              inputFormatters: inputFormatters,
-              textInputAction: isLastFieldOfPage
-                  ? TextInputAction.done
-                  : TextInputAction.next,
-              decoration: InputDecoration(
-                hintText: hintText,
-                prefixIcon: prefix,
-                prefixIconConstraints: const BoxConstraints(maxHeight: 45),
-                suffixIcon: suffix,
-                suffixIconConstraints: const BoxConstraints(maxHeight: 45),
-                hintStyle: hintStyle ?? AppStyles.text15sp400hint,
-                enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(5),
-                    borderSide: const BorderSide(color: AppColor.grBorder)),
-                focusedBorder: OutlineInputBorder(
+        ),
+        SizedBox(
+          height: 50,
+          child: TextField(
+            focusNode: widget.focusNode,
+            readOnly: widget.readOnly,
+            keyboardType: widget.keyboardType,
+            textCapitalization: widget.textCapitalization,
+            controller: widget.controller,
+            cursorColor: AppColor.hintColor,
+            style: const TextStyle(
+              color: AppColor.textColor,
+              decoration: TextDecoration.none,
+            ),
+            textAlign: widget.textAlign,
+            onChanged: (text) {
+              setState(() {
+                widget.function!(text);
+              });
+            },
+            cursorWidth: 0.75,
+            autocorrect: false,
+            enableSuggestions: false,
+            // obscureText: widget.obscureText,
+            obscureText: !_passwordVisible,
+            obscuringCharacter: '●',
+            inputFormatters: widget.inputFormatters,
+            textInputAction: widget.isLastFieldOfPage
+                ? TextInputAction.done
+                : TextInputAction.next,
+            decoration: InputDecoration(
+              hintText: widget.hintText,
+              prefixIcon: widget.prefix,
+              prefixIconConstraints: const BoxConstraints(maxHeight: 45),
+              suffixIcon: !widget.obscureIconVisible
+                  ? widget.suffix
+                  : widget.obscureText
+                      ? buildObscureIcon()
+                      : null,
+              suffixIconConstraints: const BoxConstraints(maxHeight: 45),
+              hintStyle: widget.hintStyle ?? AppStyles.text15sp400hint,
+              enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(5),
-                  borderSide: BorderSide(
-                    color: focusBorderColor ?? AppColor.hintColor,
-                  ),
+                  borderSide: const BorderSide(color: AppColor.grBorder)),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(5),
+                borderSide: BorderSide(
+                  color: widget.focusBorderColor ?? AppColor.hintColor,
                 ),
-                filled: true,
-                fillColor: controller.text.isEmpty ? bgColor : bgValueColor,
-                contentPadding: contentPadding ??
-                    const EdgeInsets.symmetric(horizontal: 15),
               ),
+              filled: true,
+              fillColor: widget.controller.text.isEmpty
+                  ? widget.bgColor
+                  : widget.bgValueColor,
+              contentPadding: widget.contentPadding ??
+                  const EdgeInsets.symmetric(horizontal: 15),
             ),
           ),
-          Visibility(
-            visible: errorText != null,
-            child: Padding(
-              padding: EdgeInsets.only(
-                top: errorTopPadding,
-                left: errorLeftPadding,
-              ),
-              child: Text(
-                errorText ?? "",
-                style: errorStyle ?? AppStyles.text14sp400error,
-              ),
+        ),
+        Visibility(
+          visible: widget.errorText != null,
+          child: Padding(
+            padding: EdgeInsets.only(
+              top: widget.errorTopPadding,
+              left: widget.errorLeftPadding,
+            ),
+            child: Text(
+              widget.errorText ?? "",
+              style: widget.errorStyle ?? AppStyles.text14sp400error,
             ),
           ),
-          Visibility(
-            visible: (noErrorText != null && errorText == null),
-            child: Padding(
-              padding: EdgeInsets.only(
-                top: noErrorTopPadding,
-                left: noErrorLeftPadding,
-              ),
-              child: Text(
-                noErrorText ?? "",
-                style: noErrorStyle ?? AppStyles.text14sp400noError,
-              ),
+        ),
+        Visibility(
+          visible: (widget.noErrorText != null && widget.errorText == null),
+          child: Padding(
+            padding: EdgeInsets.only(
+              top: widget.noErrorTopPadding,
+              left: widget.noErrorLeftPadding,
+            ),
+            child: Text(
+              widget.noErrorText ?? "",
+              style: widget.noErrorStyle ?? AppStyles.text14sp400noError,
             ),
           ),
-        ],
-      );
-    });
+        ),
+      ],
+    );
+  }
+
+  Widget buildObscureIcon() {
+    return InkWell(
+      onTap: () {
+        setState(() {
+          _passwordVisible = !_passwordVisible;
+        });
+      },
+      child: widget.obscureIcon ??
+          (_passwordVisible
+              ? Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Icon(
+                    Icons.visibility,
+                    size: 18,
+                  ),
+                )
+              : Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Icon(
+                    Icons.visibility_off,
+                    size: 18,
+                  ),
+                )),
+    );
   }
 }

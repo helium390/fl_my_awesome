@@ -45,9 +45,7 @@ class TextFieldPage extends StatelessWidget {
                     CustomTextField(
                       hintText: 'Bg Color Change',
                       bgValueColor: AppColor.white,
-                      function: (text) {
-                        // controller.activateButton();
-                      },
+                      function: (text) {},
                       controller: TextEditingController(),
                       keyboardType: TextInputType.text,
                       inputFormatters: [],
@@ -56,9 +54,7 @@ class TextFieldPage extends StatelessWidget {
                     CustomTextField(
                       hintText: 'Bg Color Change',
                       bgColor: AppColor.white,
-                      function: (text) {
-                        // controller.activateButton();
-                      },
+                      function: (text) {},
                       controller: TextEditingController(),
                       keyboardType: TextInputType.text,
                       inputFormatters: [],
@@ -70,9 +66,17 @@ class TextFieldPage extends StatelessWidget {
                       bgColor: AppColor.white,
                       keyboardType: TextInputType.text,
                       obscureText: true,
-                      function: (text) {
-                        // controller.checkPassword();
-                      },
+                      function: (text) {},
+                    ),
+                    10.ph,
+                    CustomTextField(
+                      hintText: 'Password (show/hide)',
+                      controller: TextEditingController(),
+                      bgColor: AppColor.white,
+                      keyboardType: TextInputType.text,
+                      obscureText: true,
+                      obscureIconVisible: true,
+                      function: (text) {},
                     ),
                     10.ph,
                     CustomTextField(
@@ -82,9 +86,7 @@ class TextFieldPage extends StatelessWidget {
                       controller: TextEditingController(),
                       bgColor: AppColor.white,
                       keyboardType: TextInputType.text,
-                      function: (text) {
-                        // controller.checkPassword();
-                      },
+                      function: (text) {},
                     ),
                     10.ph,
                     CustomTextField(
@@ -94,9 +96,7 @@ class TextFieldPage extends StatelessWidget {
                       bgColor: AppColor.white,
                       keyboardType: TextInputType.text,
                       errorTopPadding: 2,
-                      function: (text) {
-                        // controller.checkPassword();
-                      },
+                      function: (text) {},
                       errorText: 'Error Text',
                     ),
                     10.ph,
@@ -106,9 +106,7 @@ class TextFieldPage extends StatelessWidget {
                       bgColor: AppColor.white,
                       keyboardType: TextInputType.text,
                       errorTopPadding: 2,
-                      function: (text) {
-                        // controller.checkPassword();
-                      },
+                      function: (text) {},
                       noErrorText: 'No Error Text',
                     ),
                     20.ph,
@@ -121,14 +119,11 @@ class TextFieldPage extends StatelessWidget {
                     10.ph,
                     CustomTextFormField(
                       hintText: 'Password',
-                      // bgColor: AppColor.white,
                       controller: TextEditingController(),
                       keyboardType: TextInputType.text,
                       obscureText: true,
                       obscureColor: AppColor.red1,
-                      function: (text) {
-                        // controller.checkPassword();
-                      },
+                      function: (text) {},
                     ),
                     20.ph,
                     CustomButton(
