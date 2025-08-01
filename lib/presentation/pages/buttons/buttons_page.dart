@@ -5,7 +5,9 @@ import 'package:get/get.dart';
 
 import '../../../core/services/toast_service.dart';
 import '../../../core/utils/app_colors.dart';
+import '../../../core/utils/app_styles.dart';
 import '../../widgets/custom_button.dart';
+import '../../widgets/loading_button.dart';
 import 'buttons_controller.dart';
 
 class ButtonsPage extends StatelessWidget {
@@ -30,7 +32,7 @@ class ButtonsPage extends StatelessWidget {
             ),
             body: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(10.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -77,6 +79,17 @@ class ButtonsPage extends StatelessWidget {
                       text: 'Button',
                       onPress: () {},
                       isMatchParent: false,
+                    ),
+                    20.ph,
+                    Text(
+                      'Long Press Loading Button',
+                      style: AppStyles.text15sp400black1,
+                    ),
+                    10.ph,
+                    LoadingButton(
+                      onComplete: () async {
+                        ToastService.showShortMessage('Button Press Complete');
+                      },
                     ),
                   ],
                 ),
