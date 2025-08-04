@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 
 import '../../widgets/custom_button.dart';
 import '../buttons/buttons_page.dart';
+import '../containers/containers_page.dart';
 import '../passwords/password_page.dart';
 import '../test/test_page.dart';
 import '../text_field/text_field_page.dart';
@@ -55,6 +56,13 @@ class HomePage extends StatelessWidget {
                       text: 'Passwords',
                       onPress: () {
                         Get.to(() => PasswordPage());
+                      },
+                    ),
+                    20.ph,
+                    CustomButton(
+                      text: 'Containers',
+                      onPress: () {
+                        Get.to(() => ContainersPage());
                       },
                     ),
                   ],

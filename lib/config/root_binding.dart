@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 
 import '../presentation/pages/buttons/buttons_controller.dart';
+import '../presentation/pages/containers/containers_controller.dart';
 import '../presentation/pages/home/home_controller.dart';
 import '../presentation/pages/passwords/password_controller.dart';
 import '../presentation/pages/splash/splash_controller.dart';
@@ -18,6 +19,7 @@ class RootBinding implements Bindings {
     Get.lazyPut(() => TextFieldController(), fenix: true);
     Get.lazyPut(() => PasswordController(), fenix: true);
     Get.lazyPut(() => TestController(), fenix: true);
+    Get.lazyPut(() => ContainersController(), fenix: true);
 
     /// Repositories -----------------------------------------------------------
   }
