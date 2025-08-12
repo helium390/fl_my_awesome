@@ -81,6 +81,12 @@ class AppStyles {
     color: AppColor.white,
   );
 
+  static TextStyle text16sp400black = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 16.sp,
+    color: AppColor.black,
+  );
+
   static TextStyle text16sp400black2 = TextStyle(
     fontWeight: FontWeight.w400,
     fontSize: 16.sp,
@@ -109,6 +115,12 @@ class AppStyles {
     fontWeight: FontWeight.w600,
     fontSize: 16.sp,
     color: AppColor.red1,
+  );
+
+  static TextStyle text16sp600blue1 = TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: 16.sp,
+    color: AppColor.blue1,
   );
 
   /// Text 18 sp ----------------------------------------------------------------
