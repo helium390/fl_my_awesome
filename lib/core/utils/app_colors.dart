@@ -11,6 +11,7 @@ class AppColor {
   static const black = Colors.black;
 
   static const grey1 = Color(0xFF666666);
+  static const grey3 = Color(0xFFE8E7E7);
 
   static const grBorder = Color(0xFFCBCBCB);
 

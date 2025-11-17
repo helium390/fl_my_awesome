@@ -199,6 +199,12 @@ class AppStyles {
     color: AppColor.white,
   );
 
+  static TextStyle text20sp700black = TextStyle(
+    fontWeight: FontWeight.w700,
+    fontSize: 20.sp,
+    color: AppColor.black,
+  );
+
   static TextStyle text20sp400black3 = TextStyle(
     fontWeight: FontWeight.w400,
     fontSize: 20.sp,
@@ -254,5 +260,12 @@ class AppStyles {
     fontWeight: FontWeight.w600,
     fontSize: 32.sp,
     color: AppColor.white,
+  );
+
+  /// Text 36 sp ---------------------------------------------------------------
+  static TextStyle text36sp400black = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 36.sp,
+    color: AppColor.black,
   );
 }
