@@ -49,7 +49,7 @@ flutter:
     - assets/images/
     - assets/icons/
     - assets/lotties/
-    - assets/html/
-    - assets/texts/
+#    - assets/html/
+#    - assets/texts/
 
   uses-material-design: true

@@ -32,9 +32,17 @@ class CustomButton extends StatelessWidget {
   /// default style: [AppStyles.text14sp600white]
   final TextStyle? textStyle;
 
+  /// pressed/focused/hovered
+  final Color? overlayColor;
+
+  /// if child widget is provided, other parameters like text,
+  /// textStyle, prefix, suffix will be ignored
+  final Widget? childWidget;
+
   final bool isActive;
   final bool isMatchParent;
   final Color shadowColor;
+  final Color inActiveShadowColor;
   final double elevation;
   final Widget? prefix;
   final Widget? suffix;
@@ -55,9 +63,12 @@ class CustomButton extends StatelessWidget {
     this.isActive = true,
     this.isMatchParent = true,
     this.shadowColor = AppColor.blue1,
+    this.overlayColor,
+    this.inActiveShadowColor = AppColor.black6,
     this.elevation = 0,
     this.prefix,
     this.suffix,
+    this.childWidget,
     required this.onPress,
   });
 
@@ -65,7 +76,8 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return OutlinedButton(
       style: OutlinedButton.styleFrom(
-        shadowColor: shadowColor,
+        shadowColor: isActive ? shadowColor : inActiveShadowColor,
+        overlayColor: overlayColor,
         elevation: elevation,
         minimumSize: isMatchParent ? const Size(double.infinity, 1) : Size.zero,
         backgroundColor: isActive ? bgColor : inActiveBgColor,
@@ -82,19 +94,20 @@ class CustomButton extends StatelessWidget {
         ),
       ),
       onPressed: isActive ? onPress : null,
-      child: FittedBox(
-        child: Row(
-          children: [
-            (prefix != null) ? prefix! : SizedBox(),
-            Text(
-              text ?? "",
-              maxLines: 1,
-              style: textStyle ?? AppStyles.text14sp1h600white,
+      child: childWidget ??
+          FittedBox(
+            child: Row(
+              children: [
+                (prefix != null) ? prefix! : SizedBox(),
+                Text(
+                  text ?? "",
+                  maxLines: 1,
+                  style: textStyle ?? AppStyles.text14sp1h600white,
+                ),
+                (suffix != null) ? suffix! : SizedBox(),
+              ],
             ),
-            (suffix != null) ? suffix! : SizedBox(),
-          ],
-        ),
-      ),
+          ),
     );
   }
 }

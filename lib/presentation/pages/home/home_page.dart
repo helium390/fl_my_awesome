@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 
 import '../../widgets/custom_button.dart';
 import '../buttons/buttons_page.dart';
+import '../containers/card_containers_page.dart';
 import '../containers/containers_page.dart';
 import '../passwords/password_page.dart';
 import '../test/test_page.dart';
@@ -63,6 +64,13 @@ class HomePage extends StatelessWidget {
                       text: 'Containers',
                       onPress: () {
                         Get.to(() => ContainersPage());
+                      },
+                    ),
+                    20.ph,
+                    CustomButton(
+                      text: 'Card Containers',
+                      onPress: () {
+                        Get.to(() => CardContainersPage());
                       },
                     ),
                   ],

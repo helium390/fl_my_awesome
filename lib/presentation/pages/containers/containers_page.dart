@@ -7,6 +7,7 @@ import '../../../core/services/toast_service.dart';
 import '../../../core/utils/app_colors.dart';
 import '../../../core/utils/app_styles.dart';
 import '../../widgets/circle_progress.dart';
+import '../../widgets/dividers.dart';
 import '../../widgets/loading_button.dart';
 import 'containers_controller.dart';
 
@@ -18,28 +19,84 @@ class ContainersPage extends StatelessWidget {
     return GetBuilder<ContainersController>(
       builder: (controller) {
         return Scaffold(
-            appBar: AppBar(
-              leading: IconButton(
-                icon: const Icon(
-                  Icons.arrow_back_ios_rounded,
-                  color: AppColor.buttonText,
-                  size: 20,
-                ),
-                onPressed: () => Get.back(),
+          appBar: AppBar(
+            leading: IconButton(
+              icon: const Icon(
+                Icons.arrow_back_ios_rounded,
+                color: AppColor.buttonText,
+                size: 20,
               ),
-              title: Text('Containers'),
-              centerTitle: true,
+              onPressed: () => Get.back(),
             ),
-            body: SingleChildScrollView(
+            title: Text('Containers'),
+            centerTitle: true,
+          ),
+          body: SafeArea(
+            child: SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    10.ph,
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: 60,
+                          child: CircleAvatar(
+                            minRadius: 30,
+                            backgroundColor: AppColor.red2,
+                            child: CircleAvatar(
+                              minRadius: 28,
+                              backgroundColor: AppColor.white,
+                              child: CircleAvatar(
+                                minRadius: 26,
+                                backgroundColor: AppColor.red2,
+                                child: Text(
+                                  'DR',
+                                  style: AppStyles.text18sp500black1,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        10.pw,
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Dilshod Rakhmanov',
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: AppStyles.text20sp400black1,
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    'Member ID',
+                                    style: AppStyles.text14sp500grey1h1,
+                                  ),
+                                  Expanded(
+                                    child: Text(
+                                      ': Member030785',
+                                      style: AppStyles.text14sp500grey1h1,
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    20.ph,
+                    Dividers.divider0h1tBlack(),
+                    20.ph,
                     CustomPaint(
                       painter: CircleProgress(
-                        currentProgress: 100,
+                        currentProgress: 84.12,
                         color: AppColor.green1,
                         bgColor: AppColor.grey1,
                         strokeWidth: 10,
@@ -53,18 +110,20 @@ class ContainersPage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              '94.12 %',
+                              '84.12 %',
                               style: AppStyles.text15sp400black1,
                             ),
                             Text(
-                              'remaining'.tr,
+                              'remaining',
                               style: AppStyles.text15sp400black1,
                             ),
                           ],
                         ),
                       ),
                     ),
-                    10.ph,
+                    20.ph,
+                    Dividers.divider0h1tBlack(),
+                    20.ph,
                     CustomPaint(
                       painter: CircleProgress(
                         currentProgress: 45,
@@ -85,13 +144,15 @@ class ContainersPage extends StatelessWidget {
                               style: AppStyles.text15sp400black1,
                             ),
                             Text(
-                              'remaining'.tr,
+                              'remaining',
                               style: AppStyles.text15sp400black1,
                             ),
                           ],
                         ),
                       ),
                     ),
+                    20.ph,
+                    Dividers.divider0h1tBlack(),
                     20.ph,
                     Text(
                       'Long Press Button',
@@ -104,6 +165,8 @@ class ContainersPage extends StatelessWidget {
                       },
                     ),
                     20.ph,
+                    Dividers.divider0h1tBlack(),
+                    30.ph,
                     Stack(
                       clipBehavior: Clip.none,
                       children: [
@@ -195,7 +258,9 @@ class ContainersPage extends StatelessWidget {
                   ],
                 ),
               ),
-            ));
+            ),
+          ),
+        );
       },
     );
   }

@@ -11,6 +11,7 @@ class CustomTextField extends StatefulWidget {
   final FocusNode? focusNode;
   final String? title;
   final TextStyle? titleStyle;
+  final double height;
   final double titleBottomPadding;
 
   final String hintText;
@@ -52,6 +53,7 @@ class CustomTextField extends StatefulWidget {
     this.bgColor = AppColor.greyBg,
     this.bgValueColor = AppColor.white,
     this.title,
+    this.height = 50,
     this.titleBottomPadding = 10,
     this.errorText,
     this.errorStyle,
@@ -109,7 +111,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
           ),
         ),
         SizedBox(
-          height: 50,
+          height: widget.height,
           child: TextField(
             focusNode: widget.focusNode,
             readOnly: widget.readOnly,

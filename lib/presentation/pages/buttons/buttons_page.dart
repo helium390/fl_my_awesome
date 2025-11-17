@@ -32,7 +32,10 @@ class ButtonsPage extends StatelessWidget {
             ),
             body: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20.0,
+                  vertical: 10.0,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -59,6 +62,31 @@ class ButtonsPage extends StatelessWidget {
                           Icons.done,
                           color: AppColor.yellow1,
                         ),
+                      ),
+                      onPress: () {},
+                    ),
+                    20.ph,
+                    CustomButton(
+                      text: 'Button with custom child',
+                      childWidget: Row(
+                        children: [
+                          const Icon(
+                            Icons.person,
+                            color: AppColor.white,
+                          ),
+                          8.pw,
+                          Expanded(
+                            child: Text(
+                              'Button with custom child',
+                              style: AppStyles.text14sp1h600white,
+                            ),
+                          ),
+                          8.pw,
+                          const Icon(
+                            Icons.arrow_forward_ios_outlined,
+                            color: AppColor.white,
+                          ),
+                        ],
                       ),
                       onPress: () {},
                     ),
