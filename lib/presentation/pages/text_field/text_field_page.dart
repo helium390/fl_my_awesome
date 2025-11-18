@@ -126,6 +126,22 @@ class TextFieldPage extends StatelessWidget {
                       function: (text) {},
                     ),
                     20.ph,
+                    Dividers.divider0h1tBlack(),
+                    20.ph,
+                    CustomTextField(
+                      controller: TextEditingController(),
+                      hintText: '0.00',
+                      bgColor: AppColor.white,
+                      function: (text) {},
+                      keyboardType: TextInputType.number,
+                      inputFormatters: [],
+                      suffix: buildSuffix(
+                        'KRW',
+                      ),
+                    ),
+                    20.ph,
+                    Dividers.divider0h1tBlack(),
+                    20.ph,
                     CustomButton(
                       text: 'Button',
                       onPress: () {},
@@ -135,6 +151,35 @@ class TextFieldPage extends StatelessWidget {
               ),
             ));
       },
+    );
+  }
+
+  Widget buildSuffix(final String currency) {
+    return Container(
+      height: double.infinity,
+      width: 110,
+      decoration: BoxDecoration(
+        color: AppColor.blue3,
+        borderRadius: BorderRadius.circular(5),
+        border: Border(
+          right: BorderSide(
+            color: AppColor.blue3,
+            width: 1,
+          ),
+        ),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(Icons.flag, size: 25, color: AppColor.white),
+          10.pw,
+          Text(
+            currency,
+            style: AppStyles.text16sp400white,
+          ),
+        ],
+      ),
     );
   }
 }

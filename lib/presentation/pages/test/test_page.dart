@@ -1,12 +1,9 @@
 import 'package:fl_my_awesome/config/extensions.dart';
-import 'package:fl_my_awesome/core/services/toast_service.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
 import '../../../core/utils/app_colors.dart';
-import '../../../core/utils/app_styles.dart';
-import '../../widgets/loading_button.dart';
 import 'test_controller.dart';
 
 class TestPage extends StatelessWidget {
@@ -35,18 +32,8 @@ class TestPage extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Long Press Button',
-                      style: AppStyles.text18sp400black1,
-                    ),
                     20.ph,
-                    Center(
-                      child: LoadingButton(
-                        onComplete: () async {
-                          ToastService.showShortMessage('Button Pressed');
-                        },
-                      ),
-                    ),
+                    Text('Test'),
                   ],
                 ),
               ),
