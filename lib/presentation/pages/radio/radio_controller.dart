@@ -33,6 +33,31 @@ class RadioController extends GetxController {
     update();
   }
 
+  var check1 = false;
+  var check2 = false;
+  var check3 = false;
+  bool termsCondition = false;
+
+  void setCheck1(check) {
+    check1 = check;
+    update();
+  }
+
+  void setCheck2(check) {
+    check2 = check;
+    update();
+  }
+
+  void setCheck3(check) {
+    check3 = check;
+    update();
+  }
+
+  void checkTermsCondition() {
+    termsCondition = !termsCondition;
+    update();
+  }
+
   /// Others -------------------------------------------------------------------
   void changeLoading() {
     isLoading = !isLoading;

@@ -15,7 +15,7 @@ dependencies:
 
   #UI
   flutter_screenutil: ^5.9.3
-  google_fonts: ^6.2.1
+  google_fonts: ^6.3.2
   fluttertoast: ^8.2.12
   flutter_svg: ^2.2.0
 

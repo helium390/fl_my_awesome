@@ -77,7 +77,7 @@ class HomePage extends StatelessWidget {
                   ),
                   20.ph,
                   CustomButton(
-                    text: 'Radio Buttons',
+                    text: 'Radio / Checkbox',
                     onPress: () {
                       Get.to(() => RadioPage());
                     },

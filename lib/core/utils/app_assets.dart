@@ -19,6 +19,7 @@ class IconsInAssets {
   String get verifyOk => "assets/icons/ic_verify_ok.svg";
   String get verifyNo => "assets/icons/ic_verify_no.svg";
   String get delete => "assets/icons/ic_delete.svg";
+  String get verify => "assets/icons/ic_verify.svg";
 }
 
 class Lotties {
