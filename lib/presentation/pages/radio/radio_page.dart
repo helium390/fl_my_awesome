@@ -13,6 +13,14 @@ import 'radio_controller.dart';
 class RadioPage extends StatelessWidget {
   const RadioPage({super.key});
 
+  static const WidgetStateProperty<Icon> thumbIcon =
+      WidgetStateProperty<Icon>.fromMap(
+    <WidgetStatesConstraint, Icon>{
+      WidgetState.selected: Icon(Icons.check),
+      WidgetState.any: Icon(Icons.close),
+    },
+  );
+
   @override
   Widget build(BuildContext context) {
     return GetBuilder<RadioController>(
@@ -292,7 +300,7 @@ class RadioPage extends StatelessWidget {
                       thumbIcon: WidgetStateProperty.all(const Icon(null)),
                       // icon size bigger
                       trackOutlineColor: WidgetStateProperty.resolveWith(
-                            (final Set<WidgetState> states) {
+                        (final Set<WidgetState> states) {
                           if (states.contains(WidgetState.selected)) {
                             return null;
                           }
@@ -336,6 +344,21 @@ class RadioPage extends StatelessWidget {
                       },
                       iconSizeBigger: false,
                       tScale: 0.7,
+                    ),
+                    20.ph,
+                    Center(
+                      child: Text(
+                        'Switch with icon',
+                        style: AppStyles.text16sp400black,
+                      ),
+                    ),
+                    10.ph,
+                    Switch(
+                      thumbIcon: thumbIcon,
+                      value: controller.switch4,
+                      onChanged: (bool value) {
+                        controller.toggleSwitch4(value);
+                      },
                     ),
                     20.ph,
                     Dividers.divider0h1tBlack(),

@@ -61,6 +61,7 @@ class RadioController extends GetxController {
   bool switch1 = false;
   bool switch2 = false;
   bool switch3 = false;
+  bool switch4 = false;
 
   void toggleSwitch1(bool value) {
     switch1 = value;
@@ -74,6 +75,11 @@ class RadioController extends GetxController {
 
   void toggleSwitch3(bool value) {
     switch3 = value;
+    update();
+  }
+
+  void toggleSwitch4(bool value) {
+    switch4 = value;
     update();
   }
 
