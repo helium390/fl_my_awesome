@@ -58,6 +58,27 @@ class RadioController extends GetxController {
     update();
   }
 
+  bool switch1 = false;
+  bool switch2 = false;
+  bool switch3 = false;
+
+  void toggleSwitch1(bool value) {
+    switch1 = value;
+    update();
+  }
+
+  void toggleSwitch2(bool value) {
+    switch2 = value;
+    update();
+  }
+
+  void toggleSwitch3(bool value) {
+    switch3 = value;
+    update();
+  }
+
+
+
   /// Others -------------------------------------------------------------------
   void changeLoading() {
     isLoading = !isLoading;

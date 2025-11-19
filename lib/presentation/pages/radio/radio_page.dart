@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import '../../../core/utils/app_colors.dart';
 import '../../../core/utils/app_styles.dart';
 import '../../widgets/custom_checkbox.dart';
+import '../../widgets/custom_switch.dart';
 import '../../widgets/dividers.dart';
 import 'radio_controller.dart';
 
@@ -26,7 +27,7 @@ class RadioPage extends StatelessWidget {
               ),
               onPressed: () => Get.back(),
             ),
-            title: Text('Radio / Checkbox'),
+            title: Text('Radio / Checkbox / Switch'),
             centerTitle: true,
           ),
           body: SafeArea(
@@ -159,6 +160,8 @@ class RadioPage extends StatelessWidget {
                       ),
                     ),
                     20.ph,
+
+                    /// Checkbox -----------------------------------------------
                     Dividers.divider0h1tBlack(),
                     20.ph,
                     Center(
@@ -262,6 +265,77 @@ class RadioPage extends StatelessWidget {
                           size: 12,
                         ),
                       ),
+                    ),
+                    20.ph,
+
+                    /// Checkbox -----------------------------------------------
+                    Dividers.divider0h1tBlack(),
+                    20.ph,
+                    Center(
+                      child: Text(
+                        'Simple Switch',
+                        style: AppStyles.text16sp400black,
+                      ),
+                    ),
+                    10.ph,
+                    Switch(
+                      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      value: controller.switch1,
+                      onChanged: (b) {
+                        controller.toggleSwitch1(b);
+                      },
+
+                      activeThumbColor: AppColor.white,
+                      activeTrackColor: AppColor.green1,
+                      inactiveThumbColor: AppColor.green1,
+                      inactiveTrackColor: AppColor.white,
+                      thumbIcon: WidgetStateProperty.all(const Icon(null)),
+                      // icon size bigger
+                      trackOutlineColor: WidgetStateProperty.resolveWith(
+                            (final Set<WidgetState> states) {
+                          if (states.contains(WidgetState.selected)) {
+                            return null;
+                          }
+                          return AppColor.green1;
+                        },
+                      ),
+                    ),
+                    20.ph,
+                    Center(
+                      child: Text(
+                        'Adaptive Switch',
+                        style: AppStyles.text16sp400black,
+                      ),
+                    ),
+                    Switch.adaptive(
+                      value: controller.switch2,
+                      onChanged: (bool value) {
+                        controller.toggleSwitch2(value);
+                      },
+                    ),
+                    20.ph,
+                    Center(
+                      child: Text(
+                        'Custom Switch',
+                        style: AppStyles.text16sp400black,
+                      ),
+                    ),
+                    10.ph,
+                    CustomSwitch(
+                      value: controller.switch3,
+                      onChanged: (bool b) {
+                        controller.toggleSwitch3(b);
+                      },
+                      tScale: 0.8,
+                    ),
+                    10.ph,
+                    CustomSwitch(
+                      value: controller.switch3,
+                      onChanged: (bool b) {
+                        controller.toggleSwitch3(b);
+                      },
+                      iconSizeBigger: false,
+                      tScale: 0.7,
                     ),
                     20.ph,
                     Dividers.divider0h1tBlack(),
