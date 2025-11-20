@@ -159,9 +159,6 @@ class _StackableContainersState extends State<StackableContainer> {
             IgnorePointer(
               ignoring: !isSecondContainerOnTop,
               child: InkWell(
-                // onTap: () {
-                //   ToastService.showNotifMessage('JRF Card Money clicked');
-                // },
                 onTap: widget.cardPress,
                 child: Row(
                   mainAxisSize: MainAxisSize.min,

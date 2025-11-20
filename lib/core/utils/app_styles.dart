@@ -100,6 +100,26 @@ class AppStyles {
       height: 1.1,
   );
 
+  static TextStyle text15sp500black1 = TextStyle(
+    fontWeight: FontWeight.w500,
+    fontSize: 15.sp,
+    color: AppColor.black1,
+  );
+
+  static TextStyle text15sp1h600black1 = TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: 15.sp,
+    color: AppColor.black1,
+    height: 1,
+  );
+
+  static TextStyle text15sp1h600white = TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: 15.sp,
+    color: AppColor.white,
+    height: 1,
+  );
+
   /// Text 16 sp ---------------------------------------------------------------
   static TextStyle text16sp400white = TextStyle(
     fontWeight: FontWeight.w400,
@@ -117,6 +137,12 @@ class AppStyles {
     fontWeight: FontWeight.w400,
     fontSize: 16.sp,
     color: AppColor.black2,
+  );
+
+  static TextStyle text16sp500black1 = TextStyle(
+    fontWeight: FontWeight.w500,
+    fontSize: 16.sp,
+    color: AppColor.black1,
   );
 
   static TextStyle text16sp600black2 = TextStyle(

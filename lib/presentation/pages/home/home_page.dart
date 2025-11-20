@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../widgets/custom_button.dart';
+import '../biometric/bio_page.dart';
 import '../buttons/buttons_page.dart';
 import '../containers/card_containers_page.dart';
 import '../containers/containers_page.dart';
@@ -87,6 +88,13 @@ class HomePage extends StatelessWidget {
                     text: 'Verify page',
                     onPress: () {
                       Get.to(() => VerifyPage());
+                    },
+                  ),
+                  20.ph,
+                  CustomButton(
+                    text: 'On/Off Biometric Auth',
+                    onPress: () {
+                      Get.to(() => BioPage());
                     },
                   ),
                 ],

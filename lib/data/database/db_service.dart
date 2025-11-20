@@ -17,6 +17,15 @@ class DBService {
     }, permanent: true);
   }
 
+  /// Using Biometric Auth =====================================================
+  bool isLocalAuth() {
+    return _box.read(StorageKeys.LOCAL_AUTH) ?? false;
+  }
+
+  Future<void> setLocalAuth(bool value) async {
+    await _box.write(StorageKeys.LOCAL_AUTH, value);
+  }
+
   /// App Language =============================================================
   String getLanguage() {
     var lang = _box.read(StorageKeys.LANGUAGE);

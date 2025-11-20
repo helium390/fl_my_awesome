@@ -9,6 +9,7 @@ class Images {
   const Images();
 
   String get splash => "assets/images/splash.png";
+  String get fingerprint => "assets/images/fingerprint.png";
 }
 
 class IconsInAssets {

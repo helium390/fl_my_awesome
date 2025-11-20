@@ -5,4 +5,5 @@ class StorageKeys {
   static const ACCESS_TOKEN = 'access_token';
   static const SHOW_HOME = "showHome";
   static const FIREBASE_TOKEN = 'firebase_token';
+  static const LOCAL_AUTH = "local_auth";
 }
