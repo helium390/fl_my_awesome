@@ -25,7 +25,10 @@ class LocalAuth {
         ],
       );
     } on PlatformException catch (e) {
-      print('error: $e');
+      print('PlatformException error: $e');
+      return false;
+    } catch (e) {
+      print('Error: $e');
       return false;
     }
   }

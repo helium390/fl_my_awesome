@@ -4,7 +4,6 @@ import '../../../../core/services/toast_service.dart';
 import 'local_auth_service.dart';
 
 class BiometricsController extends GetxController {
-
   static BiometricsController get to => Get.find();
 
   BiometricsController();
@@ -19,7 +18,7 @@ class BiometricsController extends GetxController {
       Get.back(result: true);
     } else {
       Get.back(result: false);
-      ToastService.showNotifMessage('Authentication canceled');
+      ToastService.showLongMessage('Authentication canceled');
     }
   }
 
