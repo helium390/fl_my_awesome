@@ -111,3 +111,44 @@ class NumericRangeFormatter extends TextInputFormatter {
     }
   }
 }
+
+class LimitRange extends TextInputFormatter {
+  LimitRange(this.minRange, this.maxRange) : assert(minRange < maxRange);
+
+  final int minRange;
+  final int maxRange;
+
+  @override
+  TextEditingValue formatEditUpdate(
+    TextEditingValue oldValue,
+    TextEditingValue newValue,
+  ) {
+    if (newValue.text.isEmpty) {
+      return newValue;
+    }
+
+    // Try parsing the new value to an integer
+    final int? value = int.tryParse(newValue.text);
+
+    if (value != null) {
+      if (value < minRange) {
+        // If the value is below the minimum, return the minimum value
+        return TextEditingValue(
+          text: minRange.toString(),
+          selection:
+              TextSelection.collapsed(offset: minRange.toString().length),
+        );
+      } else if (value > maxRange) {
+        // If the value is above the maximum, return the maximum value
+        return TextEditingValue(
+          text: maxRange.toString(),
+          selection:
+              TextSelection.collapsed(offset: maxRange.toString().length),
+        );
+      }
+    }
+
+    // If the value is within range or not a valid number (e.g., in progress of typing), accept the change
+    return newValue;
+  }
+}

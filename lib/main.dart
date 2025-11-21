@@ -50,6 +50,16 @@ class MyApp extends StatelessWidget {
             CupertinoLocalizationJaDelegate(),
             MaterialLocalizationJaDelegate(),
           ],
+          // Before it was not here.
+          // After getting issues with overlays
+          // like "Unhandled Exception: No Overlay widget found.", we added this.
+          builder: (context, child) {
+            return Overlay(
+              initialEntries: [
+                OverlayEntry(builder: (context) => child!),
+              ],
+            );
+          },
         );
       },
     );

@@ -18,7 +18,7 @@ class BiometricsController extends GetxController {
       Get.back(result: true);
     } else {
       Get.back(result: false);
-      ToastService.showLongMessage('Authentication canceled');
+      ToastService.showNotifMessage('Authentication canceled');
     }
   }
 

@@ -4,6 +4,7 @@ import '../presentation/pages/biometric/bio_controller.dart';
 import '../presentation/pages/biometric/biometrics/biometrics_controller.dart';
 import '../presentation/pages/buttons/buttons_controller.dart';
 import '../presentation/pages/containers/containers_controller.dart';
+import '../presentation/pages/formats/formats_controller.dart';
 import '../presentation/pages/home/home_controller.dart';
 import '../presentation/pages/passwords/password_controller.dart';
 import '../presentation/pages/radio/radio_controller.dart';
@@ -26,6 +27,7 @@ class RootBinding implements Bindings {
     Get.lazyPut(() => RadioController(), fenix: true);
     Get.lazyPut(() => BioController(), fenix: true);
     Get.lazyPut(() => BiometricsController(), fenix: true);
+    Get.lazyPut(() => FormatsController(), fenix: true);
 
     /// Repositories -----------------------------------------------------------
   }
