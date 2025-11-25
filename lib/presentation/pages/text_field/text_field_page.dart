@@ -1,10 +1,12 @@
 import 'package:fl_my_awesome/config/extensions.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:get/get.dart';
 
 import '../../../core/utils/app_colors.dart';
 import '../../../core/utils/app_styles.dart';
+import '../../../core/utils/text_input_formatters.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/custom_text_field.dart';
 import '../../widgets/custom_text_form_field.dart';
@@ -111,6 +113,41 @@ class TextFieldPage extends StatelessWidget {
                     ),
                     20.ph,
                     Dividers.divider0h05t02black02(),
+                    20.ph,
+                    Text(
+                      'Fixed Suffix',
+                      style: AppStyles.text16sp600black2,
+                    ),
+                    10.ph,
+                    CustomTextField(
+                      hintText: '0 ₩',
+                      bgColor: AppColor.white,
+                      fixedPrefixText: ' ₩',
+                      textStyle: AppStyles.text14sp400black1,
+                      function: (value) {},
+                      controller: TextEditingController(),
+                      keyboardType: TextInputType.number,
+                      inputFormatters: [
+                        LengthLimitingTextInputFormatter(13),
+                      ],
+                    ),
+                    10.ph,
+                    CustomTextField(
+                      hintText: '0 €',
+                      bgColor: AppColor.white,
+                      fixedPrefixText: ' €',
+                      textStyle: AppStyles.text14sp400black1,
+                      function: (value) {},
+                      controller: TextEditingController(),
+                      keyboardType: TextInputType.number,
+                      inputFormatters: [
+                        ThousandsSeparatorInputFormatter(),
+                        LengthLimitingTextInputFormatter(13),
+                        FilteringTextInputFormatter.allow(RegExp("[0-9,]")),
+                      ],
+                    ),
+                    20.ph,
+                    Dividers.divider0h1tBlack(),
                     20.ph,
                     Text(
                       'CustomTextFormField',

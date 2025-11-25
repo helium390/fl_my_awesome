@@ -193,8 +193,8 @@ class FormatsPage extends StatelessWidget {
                               style: AppStyles.text15sp400black1,
                             ),
                             Text(
-                              controller
-                                  .getTrimToDouble(controller.thousandController.text),
+                              controller.getTrimToDouble(
+                                  controller.thousandController.text),
                               style: AppStyles.text15sp1h600black1,
                             ),
                           ],
@@ -219,6 +219,41 @@ class FormatsPage extends StatelessWidget {
                       inputFormatters: [
                         LengthLimitingTextInputFormatter(13),
                         LimitRange(5, 20),
+                      ],
+                    ),
+                    20.ph,
+                    Dividers.divider0h1tBlack(),
+                    20.ph,
+                    Text(
+                      'Fixed Suffix',
+                      style: AppStyles.text15sp400black1,
+                    ),
+                    10.ph,
+                    CustomTextField(
+                      hintText: '0 ₩',
+                      bgColor: AppColor.white,
+                      fixedPrefixText: ' ₩',
+                      textStyle: AppStyles.text14sp400black1,
+                      function: (value) {},
+                      controller: controller.prefixController,
+                      keyboardType: TextInputType.number,
+                      inputFormatters: [
+                        LengthLimitingTextInputFormatter(13),
+                      ],
+                    ),
+                    10.ph,
+                    CustomTextField(
+                      hintText: '0 €',
+                      bgColor: AppColor.white,
+                      fixedPrefixText: ' €',
+                      textStyle: AppStyles.text14sp400black1,
+                      function: (value) {},
+                      controller: TextEditingController(),
+                      keyboardType: TextInputType.number,
+                      inputFormatters: [
+                        ThousandsSeparatorInputFormatter(),
+                        LengthLimitingTextInputFormatter(13),
+                        FilteringTextInputFormatter.allow(RegExp("[0-9,]")),
                       ],
                     ),
                     20.ph,

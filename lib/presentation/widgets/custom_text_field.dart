@@ -4,6 +4,8 @@ import 'package:flutter/services.dart';
 
 import '../../core/utils/app_colors.dart';
 
+Offset? _lastCharCoordinates;
+
 class CustomTextField extends StatefulWidget {
   final TextEditingController controller;
   final Function(String value)? function;
@@ -16,6 +18,9 @@ class CustomTextField extends StatefulWidget {
 
   final String hintText;
   final TextStyle? hintStyle;
+
+  final String? fixedPrefixText;
+  final TextStyle? textStyle;
 
   final Color bgColor;
   final Color bgValueColor;
@@ -50,6 +55,8 @@ class CustomTextField extends StatefulWidget {
     required this.hintText,
     this.hintStyle,
     this.titleStyle,
+    this.textStyle,
+    this.fixedPrefixText,
     this.bgColor = AppColor.greyBg,
     this.bgValueColor = AppColor.white,
     this.title,
@@ -87,11 +94,45 @@ class CustomTextField extends StatefulWidget {
 
 class _CustomTextFieldState extends State<CustomTextField> {
   late bool _passwordVisible;
+  final GlobalKey textFieldForSuffixKey = GlobalKey();
+
+  void _getCoordinates() {
+    if (textFieldForSuffixKey.currentContext != null &&
+        widget.controller.text.isNotEmpty) {
+      final RenderBox renderBox =
+          textFieldForSuffixKey.currentContext!.findRenderObject() as RenderBox;
+      final TextPainter textPainter = TextPainter(
+        text: TextSpan(
+          text: widget.controller.text,
+          style: DefaultTextStyle.of(context).style.merge(widget.textStyle),
+        ),
+        textDirection: TextDirection.ltr, // Or TextDirection.rtl
+        textScaler: MediaQuery.of(context).textScaler,
+      )..layout();
+
+      final TextPosition lastCharPosition =
+          TextPosition(offset: widget.controller.text.length);
+      final Offset localOffset = textPainter.getOffsetForCaret(
+        lastCharPosition,
+        Rect.fromLTWH(
+            0, 0, 1, textPainter.preferredLineHeight), // Caret prototype
+      );
+
+      setState(() {
+        _lastCharCoordinates = renderBox.localToGlobal(localOffset);
+      });
+    }
+  }
 
   @override
   void initState() {
     super.initState();
     _passwordVisible = !widget.obscureText;
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 
   @override
@@ -112,60 +153,81 @@ class _CustomTextFieldState extends State<CustomTextField> {
         ),
         SizedBox(
           height: widget.height,
-          child: TextField(
-            focusNode: widget.focusNode,
-            readOnly: widget.readOnly,
-            keyboardType: widget.keyboardType,
-            textCapitalization: widget.textCapitalization,
-            controller: widget.controller,
-            cursorColor: AppColor.hintColor,
-            style: const TextStyle(
-              color: AppColor.textColor,
-              decoration: TextDecoration.none,
-            ),
-            textAlign: widget.textAlign,
-            onChanged: (text) {
-              setState(() {
-                widget.function!(text);
-              });
-            },
-            cursorWidth: 0.75,
-            autocorrect: false,
-            enableSuggestions: false,
-            // obscureText: widget.obscureText,
-            obscureText: !_passwordVisible,
-            obscuringCharacter: '●',
-            inputFormatters: widget.inputFormatters,
-            textInputAction: widget.isLastFieldOfPage
-                ? TextInputAction.done
-                : TextInputAction.next,
-            decoration: InputDecoration(
-              hintText: widget.hintText,
-              prefixIcon: widget.prefix,
-              prefixIconConstraints: const BoxConstraints(maxHeight: 45),
-              suffixIcon: !widget.obscureIconVisible
-                  ? widget.suffix
-                  : widget.obscureText
-                      ? buildObscureIcon()
-                      : null,
-              suffixIconConstraints: const BoxConstraints(maxHeight: 45),
-              hintStyle: widget.hintStyle ?? AppStyles.text15sp400hint,
-              enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(5),
-                  borderSide: const BorderSide(color: AppColor.grBorder)),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(5),
-                borderSide: BorderSide(
-                  color: widget.focusBorderColor ?? AppColor.hintColor,
+          child: Stack(
+            children: [
+              TextField(
+                key: textFieldForSuffixKey,
+                focusNode: widget.focusNode,
+                readOnly: widget.readOnly,
+                keyboardType: widget.keyboardType,
+                textCapitalization: widget.textCapitalization,
+                controller: widget.controller,
+                cursorColor: AppColor.hintColor,
+                style:
+                    DefaultTextStyle.of(context).style.merge(widget.textStyle),
+                textAlign: widget.textAlign,
+                onChanged: (text) {
+                  _getCoordinates();
+                  setState(() {
+                    widget.function!(text);
+                  });
+                },
+                cursorWidth: 0.75,
+                autocorrect: false,
+                enableSuggestions: false,
+                // obscureText: widget.obscureText,
+                obscureText: !_passwordVisible,
+                obscuringCharacter: '●',
+                inputFormatters: widget.inputFormatters,
+                textInputAction: widget.isLastFieldOfPage
+                    ? TextInputAction.done
+                    : TextInputAction.next,
+                decoration: InputDecoration(
+                  hintText: widget.hintText,
+                  prefixIcon: widget.prefix,
+                  prefixIconConstraints: const BoxConstraints(maxHeight: 45),
+                  suffixIcon: !widget.obscureIconVisible
+                      ? widget.suffix
+                      : widget.obscureText
+                          ? buildObscureIcon()
+                          : null,
+                  suffixIconConstraints: const BoxConstraints(maxHeight: 45),
+                  hintStyle: widget.hintStyle ?? AppStyles.text15sp400hint,
+                  enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(5),
+                      borderSide: const BorderSide(color: AppColor.grBorder)),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5),
+                    borderSide: BorderSide(
+                      color: widget.focusBorderColor ?? AppColor.hintColor,
+                    ),
+                  ),
+                  filled: true,
+                  fillColor: widget.controller.text.isEmpty
+                      ? widget.bgColor
+                      : widget.bgValueColor,
+                  contentPadding: widget.contentPadding ??
+                      const EdgeInsets.symmetric(horizontal: 15),
                 ),
               ),
-              filled: true,
-              fillColor: widget.controller.text.isEmpty
-                  ? widget.bgColor
-                  : widget.bgValueColor,
-              contentPadding: widget.contentPadding ??
-                  const EdgeInsets.symmetric(horizontal: 15),
-            ),
+              widget.controller.text.isNotEmpty
+                  ? Positioned(
+                      left: _lastCharCoordinates?.dx ?? 0.0 + 10,
+                      child: SizedBox(
+                        height: widget.height,
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            widget.fixedPrefixText ?? '',
+                            style: DefaultTextStyle.of(context)
+                                .style
+                                .merge(widget.textStyle),
+                          ),
+                        ), // Example suffix
+                      ),
+                    )
+                  : SizedBox.shrink(),
+            ],
           ),
         ),
         Visibility(

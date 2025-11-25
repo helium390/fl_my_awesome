@@ -47,6 +47,7 @@ class HomePage extends StatelessWidget {
                     text: 'Formats',
                     onPress: () {
                       Get.to(() => FormatsPage());
+                      // Get.to(() => OnePage());
                     },
                   ),
                   20.ph,

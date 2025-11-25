@@ -14,6 +14,7 @@ class FormatsController extends GetxController {
   var birthdayController = TextEditingController();
   var thousandController = TextEditingController();
   var numericRangeController = TextEditingController();
+  var prefixController = TextEditingController();
 
   String getTrim(String value) {
     return value.trim().replaceAll(',', '');
