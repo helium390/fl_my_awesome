@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
 import '../../../data/database/db_service.dart';
-import '../../widgets/simple_dialog.dart';
+import '../../widgets/custom_dialog.dart';
 
 class BioController extends GetxController {
   static BioController get to => Get.find();
@@ -13,7 +13,7 @@ class BioController extends GetxController {
   bool localAuth = DBService.to.isLocalAuth();
 
   Future<void> disableFingerprint() async {
-    showSimpleDialog(
+    showCustomDialog(
       title: 'Disable biometric auth',
       body: 'Biometrics will no longer be \nsecuring you',
       leftBtnName: 'Cancel',

@@ -8,6 +8,7 @@ import '../biometric/bio_page.dart';
 import '../buttons/buttons_page.dart';
 import '../containers/card_containers_page.dart';
 import '../containers/containers_page.dart';
+import '../dialogs/dialogs_page.dart';
 import '../formats/formats_page.dart';
 import '../passwords/password_page.dart';
 import '../radio/radio_page.dart';
@@ -40,6 +41,13 @@ class HomePage extends StatelessWidget {
                     text: 'Test Page',
                     onPress: () {
                       Get.to(() => TestPage());
+                    },
+                  ),
+                  20.ph,
+                  CustomButton(
+                    text: 'Dialogs',
+                    onPress: () {
+                      Get.to(() => DialogsPage());
                     },
                   ),
                   20.ph,
