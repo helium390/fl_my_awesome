@@ -22,6 +22,7 @@ class IconsInAssets {
   String get delete => "assets/icons/ic_delete.svg";
   String get verify => "assets/icons/ic_verify.svg";
   String get exit => "assets/icons/exit.svg";
+  String get dropdown => "assets/icons/ic_dropdown.svg";
 }
 
 class Lotties {

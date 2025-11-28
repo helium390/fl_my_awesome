@@ -12,6 +12,12 @@ class AppStyles {
   );
 
   /// Text 13 sp ---------------------------------------------------------------
+  static TextStyle text13sp300black1 = TextStyle(
+    fontWeight: FontWeight.w300,
+    fontSize: 13.sp,
+    color: AppColor.black1,
+  );
+
   static TextStyle text13sp400white = TextStyle(
     fontWeight: FontWeight.w400,
     fontSize: 13.sp,
@@ -81,10 +87,22 @@ class AppStyles {
     color: AppColor.hintColor,
   );
 
+  static TextStyle text15sp400black = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 15.sp,
+    color: AppColor.black,
+  );
+
   static TextStyle text15sp400black1 = TextStyle(
     fontWeight: FontWeight.w400,
     fontSize: 15.sp,
     color: AppColor.black1,
+  );
+
+  static TextStyle text15sp400black3 = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 15.sp,
+    color: AppColor.black3,
   );
 
   static TextStyle text15sp400blue1 = TextStyle(
