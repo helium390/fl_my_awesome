@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
+import '../../../core/services/toast_service.dart';
 import '../../../core/utils/app_colors.dart';
+import '../../widgets/custom_dropdown.dart';
 import '../../widgets/dividers.dart';
 import '../../widgets/drop_down_menu.dart';
 import 'drop_down_controller.dart';
@@ -76,6 +78,25 @@ class DropDownPage extends StatelessWidget {
                   20.ph,
                   Dividers.divider0h1tBlack(),
                   20.ph,
+                  Center(
+                    child: Text(
+                      'CustomDropDownView',
+                      style: AppStyles.text16sp400black,
+                    ),
+                  ),
+                  10.ph,
+                  CustomDropDownView(
+                    title: "Title",
+                    body: controller.user.name!,
+                    titleInDropDown: "Title in Drop Down",
+                    items:
+                        controller.userList.map((e) => e.name ?? "").toList(),
+                    onSelect: (name) {
+                      controller.setUser(name);
+                      ToastService.showNotifMessage(
+                          'Selected user id: ${controller.user.id}');
+                    },
+                  ),
                 ],
               ),
             ),

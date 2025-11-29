@@ -6,6 +6,7 @@ class AppColor {
   static const accentColor = Color(0xFFC8232B);
 
   static const bgWhite = Color(0xFFF9F9F9);
+  static const Color borderColorWithoutOpacity = Color(0xFFB5B7BB);
 
   static const white = Colors.white;
   static const black = Colors.black;
