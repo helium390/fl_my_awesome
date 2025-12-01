@@ -11,6 +11,7 @@ import '../containers/containers_page.dart';
 import '../dialogs/dialogs_page.dart';
 import '../drop_down/drop_down_page.dart';
 import '../formats/formats_page.dart';
+import '../menu/show_menu_page.dart';
 import '../passwords/password_page.dart';
 import '../radio/radio_page.dart';
 import '../test/test_page.dart';
@@ -42,6 +43,13 @@ class HomePage extends StatelessWidget {
                     text: 'Test Page',
                     onPress: () {
                       Get.to(() => TestPage());
+                    },
+                  ),
+                  20.ph,
+                  CustomButton(
+                    text: 'Menu Page',
+                    onPress: () {
+                      Get.to(() => ShowMenuPage());
                     },
                   ),
                   20.ph,
