@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 
 import '../../widgets/custom_button.dart';
 import '../biometric/bio_page.dart';
+import '../bottomsheet/bottom_sheet_page.dart';
 import '../buttons/buttons_page.dart';
 import '../containers/card_containers_page.dart';
 import '../containers/containers_page.dart';
@@ -43,6 +44,13 @@ class HomePage extends StatelessWidget {
                     text: 'Test Page',
                     onPress: () {
                       Get.to(() => TestPage());
+                    },
+                  ),
+                  20.ph,
+                  CustomButton(
+                    text: 'Bottom Sheet Page',
+                    onPress: () {
+                      Get.to(() => BottomSheetPage());
                     },
                   ),
                   20.ph,

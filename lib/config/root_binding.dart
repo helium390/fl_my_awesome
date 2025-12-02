@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 
 import '../presentation/pages/biometric/bio_controller.dart';
 import '../presentation/pages/biometric/biometrics/biometrics_controller.dart';
+import '../presentation/pages/bottomsheet/bottom_sheet_controller.dart';
 import '../presentation/pages/buttons/buttons_controller.dart';
 import '../presentation/pages/containers/containers_controller.dart';
 import '../presentation/pages/dialogs/dialogs_controller.dart';
@@ -34,6 +35,7 @@ class RootBinding implements Bindings {
     Get.lazyPut(() => DialogsController(), fenix: true);
     Get.lazyPut(() => DropDownController(), fenix: true);
     Get.lazyPut(() => ShowMenuController(), fenix: true);
+    Get.lazyPut(() => BottomSheetController(), fenix: true);
 
     /// Repositories -----------------------------------------------------------
   }

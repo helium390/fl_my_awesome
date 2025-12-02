@@ -16,6 +16,7 @@ class AppColor {
   static const grey11 = Color(0xFF9CA0A6);
 
   static const grBorder = Color(0xFFCBCBCB);
+  static const grayBorder = Color(0xFF828282);
 
   static const black1 = Color(0xFF2B2B2B);
   static const black2 = Color(0xFF776F6F);
@@ -24,12 +25,22 @@ class AppColor {
 
   static const red1 = Color(0xFFC20E11);
   static const red2 = Color(0xFFF7D4D4);
+  static const red11 = Color(0xFF8A0010);
+  static const red25 = Color(0xFFE85B61);
 
   static const yellow1 = Color(0xFFF4D44E);
+  static const yellow2 = Color(0xFFF5B336);
 
   static const hint1 = Color(0xFFD0D0D0);
 
   static const green1 = Color(0xFF1A9317);
+  static const green2 = Color(0xFF2FC86C);
+  static const green3 = Color(0xFF47BC95);
+  static const green4 = Color(0xFF05B3B5);
+  static const green5 = Color(0xFF2DC100);
+  static const green6 = Color(0xFF2B8E00);
+  static const green7 = Color(0xFFE6F5EC);
+  static const green8 = Color(0xFF67C92A);
 
   static const blue1 = Color(0xFF007AFF);
   static const blue2 = Color(0xFF0B1CB2);
@@ -38,6 +49,9 @@ class AppColor {
   static const blue5 = Color(0xFF0678F1);
   static const blue8 = Color(0xFF281E39);
   static const blue9 = Color(0xFF0330C0);
+
+  static const dark04 = Color(0xFF1F1F1F);
+  static const dark05 = Color(0xFF474747);
 
   static const greyBg = Color(0xFFF5F5F5);
   static const mainColor = Color(0xFF222222);

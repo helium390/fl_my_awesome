@@ -37,6 +37,12 @@ class AppStyles {
   );
 
   /// Text 14 sp ---------------------------------------------------------------
+  static TextStyle text14sp400black = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 14.sp,
+    color: AppColor.black,
+  );
+
   static TextStyle text14sp400black1 = TextStyle(
     fontWeight: FontWeight.w400,
     fontSize: 14.sp,
@@ -47,6 +53,12 @@ class AppStyles {
     fontWeight: FontWeight.w400,
     fontSize: 14.sp,
     color: AppColor.black2,
+  );
+
+  static TextStyle text14sp400red1 = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 14.sp,
+    color: AppColor.red1,
   );
 
   static TextStyle text14sp1h600white = TextStyle(
@@ -157,6 +169,18 @@ class AppStyles {
     color: AppColor.black2,
   );
 
+  static TextStyle text16sp400dark04 = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 16.sp,
+    color: AppColor.dark04,
+  );
+
+  static TextStyle text16sp400dark05 = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 16.sp,
+    color: AppColor.dark05,
+  );
+
   static TextStyle text16sp500black1 = TextStyle(
     fontWeight: FontWeight.w500,
     fontSize: 16.sp,
@@ -193,6 +217,12 @@ class AppStyles {
     color: AppColor.blue1,
   );
 
+  static TextStyle text16sp700white = TextStyle(
+    fontWeight: FontWeight.w700,
+    fontSize: 16.sp,
+    color: AppColor.white,
+  );
+
   /// Text 18 sp ----------------------------------------------------------------
   static TextStyle text18sp400black1 = TextStyle(
     fontWeight: FontWeight.w400,
@@ -216,6 +246,18 @@ class AppStyles {
     fontWeight: FontWeight.w700,
     fontSize: 18.sp,
     color: AppColor.black1,
+  );
+
+  static TextStyle text18sp700dark04 = TextStyle(
+    fontWeight: FontWeight.w700,
+    fontSize: 18.sp,
+    color: AppColor.dark04,
+  );
+
+  static TextStyle text18sp700dark05 = TextStyle(
+    fontWeight: FontWeight.w700,
+    fontSize: 18.sp,
+    color: AppColor.dark05,
   );
 
   static TextStyle text18sp900black1 = TextStyle(

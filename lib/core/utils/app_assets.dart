@@ -10,6 +10,9 @@ class Images {
 
   String get splash => "assets/images/splash.png";
   String get fingerprint => "assets/images/fingerprint.png";
+  String get bug => "assets/images/ic_bug.png";
+  String get suggestion => "assets/images/ic_suggestion.png";
+  String get compliment => "assets/images/ic_compliment.png";
 }
 
 class IconsInAssets {
@@ -23,6 +26,9 @@ class IconsInAssets {
   String get verify => "assets/icons/ic_verify.svg";
   String get exit => "assets/icons/exit.svg";
   String get dropdown => "assets/icons/ic_dropdown.svg";
+  String get dropdownRed => "assets/icons/ic_dropdown_red.svg";
+  String get drag => "assets/icons/ic_drag.svg";
+  String get check1 => "assets/icons/ic_check1.svg";
 }
 
 class Lotties {
