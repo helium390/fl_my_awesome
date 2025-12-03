@@ -17,6 +17,8 @@ class AppColor {
 
   static const grBorder = Color(0xFFCBCBCB);
   static const grayBorder = Color(0xFF828282);
+  static const listDividerColor = Color(0xFFD6D9DE);
+  static const greyAreaColor = Color(0xFFF1F1F1);
 
   static const black1 = Color(0xFF2B2B2B);
   static const black2 = Color(0xFF776F6F);

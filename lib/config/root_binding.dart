@@ -11,6 +11,7 @@ import '../presentation/pages/formats/formats_controller.dart';
 import '../presentation/pages/home/home_controller.dart';
 import '../presentation/pages/menu/show_menu_controller.dart';
 import '../presentation/pages/passwords/password_controller.dart';
+import '../presentation/pages/photo_picture/photo_picture_controller.dart';
 import '../presentation/pages/radio/radio_controller.dart';
 import '../presentation/pages/splash/splash_controller.dart';
 import '../presentation/pages/test/test_controller.dart';
@@ -36,6 +37,7 @@ class RootBinding implements Bindings {
     Get.lazyPut(() => DropDownController(), fenix: true);
     Get.lazyPut(() => ShowMenuController(), fenix: true);
     Get.lazyPut(() => BottomSheetController(), fenix: true);
+    Get.lazyPut(() => PhotoPictureController(), fenix: true);
 
     /// Repositories -----------------------------------------------------------
   }

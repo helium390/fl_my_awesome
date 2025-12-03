@@ -13,6 +13,7 @@ class Images {
   String get bug => "assets/images/ic_bug.png";
   String get suggestion => "assets/images/ic_suggestion.png";
   String get compliment => "assets/images/ic_compliment.png";
+  String get passport => "assets/images/passport.png";
 }
 
 class IconsInAssets {
