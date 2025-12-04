@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:fl_my_awesome/config/extensions.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
 
@@ -13,6 +14,7 @@ import 'image_util/select_custom_img.dart';
 import 'image_util/select_image.dart';
 import 'photo_picture_controller.dart';
 import '../../widgets/dividers.dart';
+import 'widgets/photo_item_x.dart';
 
 class PhotoPicturePage extends StatelessWidget {
   const PhotoPicturePage({super.key});
@@ -60,6 +62,90 @@ class PhotoPicturePage extends StatelessWidget {
                       },
                     ),
                   ),
+                  20.ph,
+                  Dividers.divider0h1tBlack(),
+                  20.ph,
+                  Text(
+                    'Image List with custom widget',
+                    style: AppStyles.text16sp400black,
+                  ),
+                  20.ph,
+                  Container(
+                    width: 1.sw,
+                    height: 140,
+                    padding: const EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      color: AppColor.white,
+                      border: Border.all(color: AppColor.black.withAlpha(20)),
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                    child: controller.somePhotoLocalUrlList.isEmpty
+                        ? SelectCustomImg(
+                            imageFunction: (localUrl, imageUrl) {
+                              controller.addPhoto(localUrl!, imageUrl);
+                            },
+                            childWidget: Center(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.add_photo_alternate_outlined,
+                                    color: AppColor.black1,
+                                  ),
+                                  3.ph,
+                                  Text(
+                                    'Add Photo',
+                                    style: AppStyles.text18sp500black1,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          )
+                        : ListView.builder(
+                            shrinkWrap: true,
+                            itemCount: controller.somePhotoLocalUrlList.length,
+                            scrollDirection: Axis.horizontal,
+                            itemBuilder: (_, index) => Row(
+                              children: [
+                                PhotoItemX(
+                                  image:
+                                      controller.somePhotoLocalUrlList[index],
+                                  onRemove: () {
+                                    controller.removePhoto(index);
+                                  },
+                                ),
+                                5.pw,
+                              ],
+                            ),
+                          ),
+                  ),
+                  controller.somePhotoLocalUrlList.isNotEmpty
+                      ? Column(
+                          children: [
+                            20.ph,
+                            SelectCustomImg(
+                              imageFunction: (localUrl, imageUrl) {
+                                controller.addPhoto(localUrl!, imageUrl);
+                              },
+                              childWidget: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.add_photo_alternate_outlined,
+                                    color: AppColor.black1,
+                                  ),
+                                  6.pw,
+                                  Text(
+                                    'Add photo',
+                                    style: AppStyles.text16sp500black1,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        )
+                      : Container(),
                   20.ph,
                   Dividers.divider0h1tBlack(),
                   20.ph,
