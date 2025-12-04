@@ -19,6 +19,8 @@ dependencies:
   fluttertoast: ^8.2.12
   flutter_svg: ^2.2.0
   image_picker: ^1.2.1
+  camera: ^0.11.3
+  image: ^4.5.4
 
   # Formatting
   intl: ^0.20.2

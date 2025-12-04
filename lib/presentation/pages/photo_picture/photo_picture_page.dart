@@ -10,6 +10,8 @@ import '../../../core/utils/app_assets.dart';
 import '../../../core/utils/app_colors.dart';
 import '../../../core/utils/app_styles.dart';
 import '../../widgets/custom_button.dart';
+import 'cropped_camera_back.dart';
+import 'cropped_camera_front.dart';
 import 'image_util/select_custom_img.dart';
 import 'image_util/select_image.dart';
 import 'photo_picture_controller.dart';
@@ -42,6 +44,27 @@ class PhotoPicturePage extends StatelessWidget {
               child: Column(
                 // crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  20.ph,
+                  Dividers.divider0h1tBlack(),
+                  20.ph,
+                  Text(
+                    'Custom Image Picker (Cropped)',
+                    style: AppStyles.text16sp400black,
+                  ),
+                  20.ph,
+                  CustomButton(
+                    text: 'Open back ID camera',
+                    onPress: () {
+                      Get.to(() => CroppedCameraBack());
+                    },
+                  ),
+                  20.ph,
+                  CustomButton(
+                    text: 'Open front ID camera',
+                    onPress: () {
+                      Get.to(() => CroppedCameraFront());
+                    },
+                  ),
                   20.ph,
                   Dividers.divider0h1tBlack(),
                   20.ph,
@@ -145,7 +168,7 @@ class PhotoPicturePage extends StatelessWidget {
                             ),
                           ],
                         )
-                      : Container(),
+                      : SizedBox.shrink(),
                   20.ph,
                   Dividers.divider0h1tBlack(),
                   20.ph,

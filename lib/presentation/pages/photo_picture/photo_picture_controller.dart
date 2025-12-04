@@ -38,6 +38,31 @@ class PhotoPictureController extends GetxController {
     update();
   }
 
+  /// Id part ------------------------------------------------------------------
+  String idBack = "";
+
+  void setIdBack(String path) {
+    idBack = path;
+    update();
+  }
+
+  void retakeIdBack() {
+    idBack = "";
+    update();
+  }
+
+  String selfiePhoto = "";
+
+  void setSelfiePhoto(String path) {
+    selfiePhoto = path;
+    update();
+  }
+
+  void retakeSelfiePhoto() {
+    selfiePhoto = "";
+    update();
+  }
+
   /// Others -------------------------------------------------------------------
   void changeLoading() {
     isLoading = !isLoading;
