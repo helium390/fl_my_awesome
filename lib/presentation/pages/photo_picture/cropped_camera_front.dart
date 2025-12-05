@@ -77,56 +77,19 @@ class CroppedCameraFront extends StatelessWidget {
                             controller.retakeSelfiePhoto();
                           },
                         ),
+                  40.ph,
+                  Text(
+                    '''This page wraps the camera plugin to show a live camera preview. Provides a helper method to capture a cropped image exactly matching the visible preview area.
+                    \nExposes takePictureWithExactCrop() (via a global key cameraGlobalKey) which captures a photo, computes the visible crop rectangle, crops/resizes using the image package, saves a final file, and deletes the original capture.
+                    ''',
+                    style: AppStyles.text14sp400black1,
+                  ),
                 ],
               ),
             ),
           ),
         );
       },
-    );
-  }
-
-  Widget selectImageWidget() {
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-      decoration: BoxDecoration(
-        color: AppColor.white,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(
-          color: AppColor.grBorder,
-          width: 0.4,
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: AppColor.black.withAlpha(30),
-            spreadRadius: 1,
-            blurRadius: 1,
-            offset: const Offset(0, 1),
-          ),
-        ],
-      ),
-      child: Row(
-        children: [
-          Icon(
-            Icons.camera_alt_outlined,
-            size: 28,
-            color: AppColor.blue3,
-          ),
-          10.pw,
-          Expanded(
-            child: Text(
-              'Scan or upload document',
-              style: AppStyles.text15sp500black1,
-            ),
-          ),
-          10.pw,
-          Icon(
-            Icons.arrow_forward_ios_outlined,
-            size: 20,
-            color: AppColor.blue3,
-          ),
-        ],
-      ),
     );
   }
 }

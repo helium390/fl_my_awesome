@@ -29,82 +29,84 @@ class _SelectCustomImgState extends State<SelectCustomImg> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        widget.isLoading
-            ? null
-            : showModalBottomSheet(
-                context: context,
-                builder: (context) {
-                  return Container(
-                    height: 220.h,
-                    color: AppColor.white,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      // crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            selectImage(ImageSource.gallery);
-                            Navigator.pop(context);
-                          },
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                padding: const EdgeInsets.all(24),
-                                decoration: const BoxDecoration(
-                                  color: AppColor.greyBg,
-                                  shape: BoxShape.circle,
-                                ),
-                                child: Icon(
-                                  Icons.photo_camera_back_outlined,
-                                  color: AppColor.black1,
-                                ),
-                              ),
-                              20.ph,
-                              Text(
-                                'Gallery',
-                                style: AppStyles.text18sp500black1,
-                              ),
-                            ],
-                          ),
-                        ),
-                        60.pw,
-                        InkWell(
-                          onTap: () {
-                            selectImage(ImageSource.camera);
-                            Navigator.pop(context);
-                          },
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                padding: const EdgeInsets.all(24),
-                                decoration: const BoxDecoration(
-                                  color: AppColor.greyBg,
-                                  shape: BoxShape.circle,
-                                ),
-                                child: Icon(
-                                  Icons.camera_alt_outlined,
-                                  color: AppColor.black1,
-                                ),
-                              ),
-                              20.ph,
-                              Text(
-                                'Photo',
-                                style: AppStyles.text18sp500black1,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  );
-                });
+        widget.isLoading ? null : callGalleryOption(context);
       },
       borderRadius: const BorderRadius.all(
         Radius.circular(10),
       ),
       child: widget.childWidget,
+    );
+  }
+
+  void callGalleryOption(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return Container(
+          height: 220.h,
+          color: AppColor.white,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              InkWell(
+                onTap: () {
+                  selectImage(ImageSource.gallery);
+                  Navigator.pop(context);
+                },
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(24),
+                      decoration: const BoxDecoration(
+                        color: AppColor.greyBg,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(
+                        Icons.photo_camera_back_outlined,
+                        color: AppColor.black1,
+                      ),
+                    ),
+                    20.ph,
+                    Text(
+                      'Gallery',
+                      style: AppStyles.text18sp500black1,
+                    ),
+                  ],
+                ),
+              ),
+              60.pw,
+              InkWell(
+                onTap: () {
+                  selectImage(ImageSource.camera);
+                  Navigator.pop(context);
+                },
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(24),
+                      decoration: const BoxDecoration(
+                        color: AppColor.greyBg,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(
+                        Icons.camera_alt_outlined,
+                        color: AppColor.black1,
+                      ),
+                    ),
+                    20.ph,
+                    Text(
+                      'Photo',
+                      style: AppStyles.text18sp500black1,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 
